@@ -1,7 +1,11 @@
 var hub = $.connection.hub;
 var symetra = $.connection.symetra;
 var mem = {
-    username: "",
+    userinfo: {
+        username: "",
+        displayname: "",
+        photo: ""  
+    },
     tooltip: {
         timer: 0
     }
@@ -12,9 +16,12 @@ hub.start().done(function () {
 symetra.client.debug = function (text) {
     $('#body').text(text);
 };
-symetra.client.setUsername = function(text) {
-    mem.username = text;
-    $('#username').text(text);
+symetra.client.gatherUserData = function(username, displayname, photo) {
+    mem.userinfo.username = username;
+    mem.userinfo.displayname = displayname;
+    mem.userinfo.photo = 'data:image/jpeg;base64,' + photo[0];
+    $('#user_button_image').attr('style', 'background-image:url(\'' + mem.userinfo.photo + '\');');
+    $('#user_button').attr('tooltip', displayname);
 }
 $('html').on('mouseenter', '.tooltip', function() {
     var item = $(this);

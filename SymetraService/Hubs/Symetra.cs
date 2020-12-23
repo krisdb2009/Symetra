@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using System.Diagnostics;
+using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 
 namespace SymetraService
@@ -14,7 +15,9 @@ namespace SymetraService
         public void Connected()
         {
             ConnectedUser = UserPrincipal.FindByIdentity(new PrincipalContext(ContextType.Domain), Context.User.Identity.Name);
-            Clients.Caller.setUsername(ConnectedUser.DisplayName);
+            DirectorySearcher ds = new DirectorySearcher("(objectSID=" + ConnectedUser.Sid + ")", new string[] {"thumbnailPhoto"});
+            SearchResult sr = ds.FindOne();
+            Clients.Caller.gatherUserData(ConnectedUser.SamAccountName, ConnectedUser.DisplayName, sr.Properties["thumbnailPhoto"]);
         }
     }
 }

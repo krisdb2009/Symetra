@@ -26,9 +26,6 @@ body {
 
 #main {
     position: relative;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 40px);
@@ -56,10 +53,30 @@ body {
     align-items: center;
 }
 
-#menus, #username {
+.titlebar_menus {
+    width:35px;
+    height:35px;
     flex: 0;
     margin: 0px 0px 0px 10px;
     white-space: nowrap;
+}
+
+#user_button {
+    display:inline-block;
+    width:25px;
+    height:25px;
+    background-color:#e4e4e4;
+    border-radius: 35px;
+    padding:5px;
+}
+
+#user_button_image {
+    display:inline-block;
+    width:25px;
+    height:25px;
+    border-radius:25px;
+    background-color:white;
+    background-size:100% 100%;
 }
 
 #menus {
@@ -68,13 +85,12 @@ body {
 
 #menu_button {
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     background-size: 25px 25px;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../Icons/apps-24px.svg');
-    padding: 5px;
     filter: opacity(.8);
     border-radius: 35px;
     cursor: pointer;
