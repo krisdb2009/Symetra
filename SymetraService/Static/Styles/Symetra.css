@@ -7,6 +7,13 @@
     transition: .3s;
 }
 
+hr {
+    border:0px;
+    height:1px;
+    background-color:#d6d6d6;
+    margin: 10px 0px 10px 0px;
+}
+
 body {
     margin: 0px;
     padding: 20px;
@@ -18,7 +25,7 @@ body {
 #logo {
     display: inline-block;
     width: 100px;
-    height: 50px;
+    height: 40px;
     background-color: white;
     background-image: url('../Icons/logo.svg');
     background-size: 100% 100%;
@@ -61,8 +68,21 @@ body {
     white-space: nowrap;
 }
 
-#footer .pagelink {
-    margin-right: 10px;
+.center {
+    text-align:center;
+}
+
+.center > * {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.left {
+    text-align:left;
+}
+
+#footer a {
+    margin-right: 20px;
 }
 
 #user_button {
@@ -147,7 +167,8 @@ body {
     background-color: white;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
     width: 300px;
-    height: 400px;
+    max-height: 400px;
+    height: calc(100% - 80px);
     border-radius: 10px;
     border: 1px solid #d9d9d9;
     padding: 15px;
@@ -180,7 +201,7 @@ body {
 
 #menu .link {
     display: inline-block;
-    width: 96px;
+    width: 90px;
     height: 100px;
     cursor: pointer;
     border: 1px solid transparent;
@@ -215,59 +236,67 @@ body {
     opacity: 1;
 }
 
-.pagelink:hover {
-    cursor: pointer;
+a {
+    color: #00898f;
+    text-decoration: none;
+}
+
+a:hover {
     text-decoration: underline;
 }
 
 #skeleton {
-    display:none;
+    display: none;
 }
 
 .skeleton {
-    padding:20px 0px 20px 0px;
+    padding: 20px 0px 20px 0px;
 }
 
 .skeleton_animation {
     animation-name: skeleton;
     animation-iteration-count: infinite;
-    animation-duration:1s;
+    animation-duration: 1s;
 }
 
 .skeleton > div {
-    height:30px;
-    background-color:#f1f1f1;
-    border-radius:30px;
-    margin-bottom:30px;
-    max-width:100%;
+    height: 30px;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    max-width: 100%;
 }
 
 .skeleton > div:nth-child(4) {
-    animation-delay:0s;
-    width:calc(30% + 50px);
+    animation-delay: 0s;
+    width: calc(30% + 50px);
 }
-.skeleton > div:nth-child(3) {
-    animation-delay:-.2s;
-    width:calc(30%);
-}
-.skeleton > div:nth-child(2) {
-    animation-delay:-.4s;
-    width:calc(30% + 150px);
 
+.skeleton > div:nth-child(3) {
+    animation-delay: -.2s;
+    width: calc(30%);
 }
+
+.skeleton > div:nth-child(2) {
+    animation-delay: -.4s;
+    width: calc(30% + 150px);
+}
+
 .skeleton > div:nth-child(1) {
-    animation-delay:-.6s;
-    width:calc(30% + 100px);
+    animation-delay: -.6s;
+    width: calc(30% + 100px);
 }
 
 @keyframes skeleton {
     0% {
-        opacity:.5;
+        opacity: .5;
     }
+
     50% {
-        opacity:1;
+        opacity: 1;
     }
+
     100% {
-        opacity:.5;
+        opacity: .5;
     }
 }

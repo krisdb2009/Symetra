@@ -8,7 +8,9 @@ var mem = {
     },
     tooltip: {
         timer: 0
-    }
+    },
+    pages: {},
+    intervals: []
 };
 $.ajaxSetup({
     cache: true
@@ -17,6 +19,8 @@ symetra.client.debug = function (text) {
     console.log(text);
 };
 symetra.client.setPage = function (page) {
+    location.hash = page;
+    clearAllIntervals();
     $('#page_style').attr('href', './Static/Pages/' + page + '/' + page + '.css');
     $('#body').html($('#skeleton').html()).load('./Static/Pages/' + page + '/' + page + '.html', function() {
         $.getScript('./Static/Pages/' + page + '/' + page + '.js');
@@ -31,7 +35,7 @@ symetra.client.gatherUserData = function(username, displayname, photo) {
 }
 $(document).ready(function() {
     hub.start().done(function () {
-        symetra.server.connected();
+        symetra.server.connected(location.hash.replace('#', ''));
     });
 });
 $('html').on('mouseenter', '.tooltip', function() {
@@ -44,11 +48,6 @@ $('html').on('mouseenter', '.tooltip', function() {
         tooltip.attr('style', 'top:' + top + 'px;left:' + left + 'px;');
         tooltip.addClass('visible');
     }, 500); 
-});
-$('html').on('click', '.pagelink', function() {
-    var item = $(this);
-    var page = item.attr('page');
-    symetra.client.setPage(page);
 });
 $('html').on('mouseleave mousedown', '.tooltip', function() {
     var tooltip = $('#tooltip');
@@ -67,3 +66,17 @@ $('html').on('click', function(e) {
         $('#menu').removeClass('visible');
     } 
 });
+window.onhashchange = function() {
+    symetra.client.setPage(location.hash.replace('#', ''));
+};
+window.setIntervalNormal = window.setInterval;
+window.setInterval = function(callback, interval) {
+    var result = window.setIntervalNormal(callback, interval);
+    mem.intervals.push(result);
+    return result;
+};
+window.clearAllIntervals = function() {
+    $.each(mem.intervals, function(k, v) {
+        window.clearInterval(v);
+    });
+};

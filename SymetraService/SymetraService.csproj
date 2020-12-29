@@ -102,6 +102,9 @@
     <Content Include="Static\Icons\apps-24px.svg" />
     <Content Include="Static\Icons\logo.svg" />
     <Content Include="Static\Icons\person_outline-24px.svg" />
+    <Content Include="Static\Pages\About\About.css" />
+    <Content Include="Static\Pages\About\About.html" />
+    <Content Include="Static\Pages\About\About.js" />
     <Content Include="Static\Pages\Home\Home.css" />
     <Content Include="Static\Pages\Home\Home.html" />
     <Content Include="Static\Pages\Home\Home.js" />
