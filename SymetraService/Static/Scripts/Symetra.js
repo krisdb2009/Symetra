@@ -10,11 +10,17 @@ var mem = {
         timer: 0
     }
 };
-hub.start().done(function () {
-    symetra.server.connected();
+$.ajaxSetup({
+    cache: true
 });
 symetra.client.debug = function (text) {
-    $('#body').text(text);
+    console.log(text);
+};
+symetra.client.setPage = function (page) {
+    $('#page_style').attr('href', './Static/Pages/' + page + '/' + page + '.css');
+    $('#body').html($('#skeleton').html()).load('./Static/Pages/' + page + '/' + page + '.html', function() {
+        $.getScript('./Static/Pages/' + page + '/' + page + '.js');
+    });
 };
 symetra.client.gatherUserData = function(username, displayname, photo) {
     mem.userinfo.username = username;
@@ -23,6 +29,11 @@ symetra.client.gatherUserData = function(username, displayname, photo) {
     $('#user_button_image').attr('style', 'background-image:url(\'' + mem.userinfo.photo + '\');');
     $('#user_button').attr('tooltip', displayname);
 }
+$(document).ready(function() {
+    hub.start().done(function () {
+        symetra.server.connected();
+    });
+});
 $('html').on('mouseenter', '.tooltip', function() {
     var item = $(this);
     var tooltip = $('#tooltip');
@@ -33,6 +44,11 @@ $('html').on('mouseenter', '.tooltip', function() {
         tooltip.attr('style', 'top:' + top + 'px;left:' + left + 'px;');
         tooltip.addClass('visible');
     }, 500); 
+});
+$('html').on('click', '.pagelink', function() {
+    var item = $(this);
+    var page = item.attr('page');
+    symetra.client.setPage(page);
 });
 $('html').on('mouseleave mousedown', '.tooltip', function() {
     var tooltip = $('#tooltip');

@@ -18,6 +18,7 @@ namespace SymetraService
             DirectorySearcher ds = new DirectorySearcher("(objectSID=" + ConnectedUser.Sid + ")", new string[] {"thumbnailPhoto"});
             SearchResult sr = ds.FindOne();
             Clients.Caller.gatherUserData(ConnectedUser.SamAccountName, ConnectedUser.DisplayName, sr.Properties["thumbnailPhoto"]);
+            Clients.Caller.setPage("Home");
         }
     }
 }

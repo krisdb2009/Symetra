@@ -20,8 +20,8 @@ body {
     width: 100px;
     height: 50px;
     background-color: white;
-    background-image:url('../Icons/logo.svg');
-    background-size:100% 100%;
+    background-image: url('../Icons/logo.svg');
+    background-size: 100% 100%;
 }
 
 #main {
@@ -42,9 +42,9 @@ body {
 #title {
     font-size: 20px;
     font-weight: 600;
-    line-height:50px;
-    vertical-align:bottom;
-    margin-left:10px;
+    line-height: 50px;
+    vertical-align: bottom;
+    margin-left: 10px;
 }
 
 #titlebar {
@@ -54,29 +54,33 @@ body {
 }
 
 .titlebar_menus {
-    width:35px;
-    height:35px;
+    width: 35px;
+    height: 35px;
     flex: 0;
     margin: 0px 0px 0px 10px;
     white-space: nowrap;
 }
 
+#footer .pagelink {
+    margin-right: 10px;
+}
+
 #user_button {
-    display:inline-block;
-    width:25px;
-    height:25px;
-    background-color:#e4e4e4;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #e4e4e4;
     border-radius: 35px;
-    padding:5px;
+    padding: 5px;
 }
 
 #user_button_image {
-    display:inline-block;
-    width:25px;
-    height:25px;
-    border-radius:25px;
-    background-color:white;
-    background-size:100% 100%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: white;
+    background-size: 100% 100%;
 }
 
 #menus {
@@ -151,8 +155,8 @@ body {
     overflow-y: auto;
     flex-wrap: wrap;
     justify-content: center;
-    opacity:0;
-    pointer-events:none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #menu::-webkit-scrollbar {
@@ -207,6 +211,63 @@ body {
 }
 
 #menu.visible {
-    pointer-events:auto;
-    opacity:1;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.pagelink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#skeleton {
+    display:none;
+}
+
+.skeleton {
+    padding:20px 0px 20px 0px;
+}
+
+.skeleton_animation {
+    animation-name: skeleton;
+    animation-iteration-count: infinite;
+    animation-duration:1s;
+}
+
+.skeleton > div {
+    height:30px;
+    background-color:#f1f1f1;
+    border-radius:30px;
+    margin-bottom:30px;
+    max-width:100%;
+}
+
+.skeleton > div:nth-child(4) {
+    animation-delay:0s;
+    width:calc(30% + 50px);
+}
+.skeleton > div:nth-child(3) {
+    animation-delay:-.2s;
+    width:calc(30%);
+}
+.skeleton > div:nth-child(2) {
+    animation-delay:-.4s;
+    width:calc(30% + 150px);
+
+}
+.skeleton > div:nth-child(1) {
+    animation-delay:-.6s;
+    width:calc(30% + 100px);
+}
+
+@keyframes skeleton {
+    0% {
+        opacity:.5;
+    }
+    50% {
+        opacity:1;
+    }
+    100% {
+        opacity:.5;
+    }
 }

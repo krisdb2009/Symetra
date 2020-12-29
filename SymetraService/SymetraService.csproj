@@ -102,6 +102,9 @@
     <Content Include="Static\Icons\apps-24px.svg" />
     <Content Include="Static\Icons\logo.svg" />
     <Content Include="Static\Icons\person_outline-24px.svg" />
+    <Content Include="Static\Pages\Home\Home.css" />
+    <Content Include="Static\Pages\Home\Home.html" />
+    <Content Include="Static\Pages\Home\Home.js" />
     <Content Include="Static\Scripts\jquery-3.5.1.js" />
     <Content Include="Static\Scripts\jquery-3.5.1.min.js" />
     <Content Include="Static\Scripts\jquery-3.5.1.slim.js" />
@@ -110,7 +113,6 @@
     <Content Include="Static\Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Static\Scripts\Symetra.js" />
     <Content Include="Static\Styles\Symetra.css" />
-    <Content Include="Static\Pages\Store.html" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
