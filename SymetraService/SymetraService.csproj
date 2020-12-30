@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ideas.txt" />
     <Content Include="index.html" />
     <Content Include="Static\Fonts\Rubik.ttf" />
     <None Include="Static\Scripts\jquery-3.5.1.intellisense.js" />
