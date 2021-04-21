@@ -21,6 +21,30 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+    a:hover {
+        text-decoration: underline;
+    }
+
+.m_center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+hr {
+    border: 0px;
+    height: 1px;
+    background-color: #d6d6d6;
+    margin: 10px 0px 10px 0px;
 }

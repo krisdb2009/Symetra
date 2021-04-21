@@ -2,16 +2,39 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <Version>0.0.0.0</Version>
+    <Authors>Dylan Bickerstaff</Authors>
+    <Company>Below Average</Company>
+    <Product>Symetra</Product>
+    <PackageId>SymetraWeb</PackageId>
+    <Copyright>(C) 2021 - belowaverage-org</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Description>An open source, real-time, Active Directory snap-in.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Shared\Components\Hr.razor.css" />
     <None Remove="Shared\Header.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Shared\Components\Hr.razor.css" />
     <Content Include="Shared\Header.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Shared\Components\" />
   </ItemGroup>
 
 </Project>

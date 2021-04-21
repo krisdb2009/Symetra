@@ -1,3 +1,36 @@
 ﻿@page "/About"
 
-<h3>About</h3>
+@using System.Reflection;
+
+@code {
+    static Assembly self = Assembly.GetExecutingAssembly();
+    AssemblyName name = self.GetName();
+    string description = self.GetCustomAttribute<AssemblyDescriptionAttribute>().Description;
+    string author = self.GetCustomAttribute<AssemblyCompanyAttribute>().Company;
+}
+
+<p class="m_center">
+    <div class="center">
+        <div class="m_center logo"></div>
+        <p>@description</p>
+    </div>
+    <hr />
+    <table class="m_center">
+        <tr>
+            <td>Version:</td>
+            <td>@name.Version.ToString()</td>
+        </tr>
+        <tr>
+            <td>Author:</td>
+            <td>@author</td>
+        </tr>
+        <tr>
+            <td>Version:</td>
+            <td>@name.Version.ToString()</td>
+        </tr>
+        <tr>
+            <td>Version:</td>
+            <td>@name.Version.ToString()</td>
+        </tr>
+    </table>
+</p>

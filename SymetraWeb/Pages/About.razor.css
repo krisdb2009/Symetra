@@ -1,0 +1,19 @@
+﻿h1 {
+    font-weight: lighter;
+    font-size: 34px;
+}
+
+p.m_center {
+    width: 500px;
+}
+
+.logo {
+    width: 200px;
+    height: 80px;
+    background-image: url('./Static/Icons/logo.svg');
+    background-size: 200px 80px;
+}
+
+tr > td:first-child {
+    font-weight:bolder;
+}
