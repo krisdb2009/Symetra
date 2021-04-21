@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Shared\Components\Hr.razor.css" />
+    <None Remove="Shared\Header.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Shared\Components\Hr.razor.css" />
+    <Content Include="Shared\Header.razor.css" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,11 @@
+﻿.header {
+    flex: 0;
+}
+::deep .logo {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    background-image: url('./Static/Icons/logo.svg');
+    background-size: 100% 100%;
+}
