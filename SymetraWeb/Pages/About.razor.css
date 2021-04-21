@@ -4,7 +4,7 @@
 }
 
 p.m_center {
-    width: 500px;
+    max-width: 500px;
 }
 
 .logo {
@@ -12,8 +12,16 @@ p.m_center {
     height: 80px;
     background-image: url('./Static/Icons/logo.svg');
     background-size: 200px 80px;
+    margin-top:100px;
+    margin-bottom:50px;
 }
 
 tr > td:first-child {
-    font-weight:bolder;
+    font-weight: bolder;
+}
+tr > td:last-child {
+    padding-left:60px;
+}
+tr {
+    height: 30px;
 }

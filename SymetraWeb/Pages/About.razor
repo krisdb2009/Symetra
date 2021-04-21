@@ -1,12 +1,33 @@
 ﻿@page "/About"
 
 @using System.Reflection;
+@using System.Timers;
 
 @code {
+    Timer timer = new Timer(200);
     static Assembly self = Assembly.GetExecutingAssembly();
     AssemblyName name = self.GetName();
     string description = self.GetCustomAttribute<AssemblyDescriptionAttribute>().Description;
     string author = self.GetCustomAttribute<AssemblyCompanyAttribute>().Company;
+    string copyright = self.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+    string time;
+    public About()
+    {
+        SetTime();
+        timer.Elapsed += Tick;
+        timer.Start();
+    }
+    private void Tick(object s, ElapsedEventArgs e)
+    {
+        SetTime();
+        InvokeAsync(() => {
+            this.StateHasChanged();
+        });
+    }
+    private void SetTime()
+    {
+        time = DateTime.Now.ToString("dddd, MMMM d, yyyy ':' hh:mm:ss:ff t'M'");
+    }
 }
 
 <p class="m_center">
@@ -25,12 +46,13 @@
             <td>@author</td>
         </tr>
         <tr>
-            <td>Version:</td>
-            <td>@name.Version.ToString()</td>
-        </tr>
-        <tr>
-            <td>Version:</td>
-            <td>@name.Version.ToString()</td>
+            <td>Copyright:</td>
+            <td>@copyright</td>
         </tr>
     </table>
+    <hr />
+    <p class="center">
+        <h3>Server Time</h3>
+        <span>@time</span>
+    </p>
 </p>
