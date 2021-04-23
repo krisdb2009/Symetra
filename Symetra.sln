@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymetraService", "SymetraService\SymetraService.csproj", "{B3806AD0-18C5-4C5D-B9C2-A7608FEAFEDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymetraWeb", "SymetraWeb\SymetraWeb.csproj", "{34179C63-3E05-41B4-965B-8F55040448B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymetraWeb", "SymetraWeb\SymetraWeb.csproj", "{34179C63-3E05-41B4-965B-8F55040448B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

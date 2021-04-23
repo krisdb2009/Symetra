@@ -1,8 +1,17 @@
 ﻿@inherits LayoutComponentBase
-<div class="layout">
-    <Header />
+
+<div @onmousedown="LayoutOnMouseDown" class="layout">
+    <Header @ref="header" />
     <div class="body">
         @Body
     </div>
     <Footer />
 </div>
+
+@code {
+    private Header header;
+    private void LayoutOnMouseDown()
+    {
+        header.CloseMenu();
+    }
+}

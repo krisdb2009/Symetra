@@ -1,3 +1,27 @@
-﻿<div class="header">
+﻿@using SymetraWeb.Shared.MainMenu;
+
+<div class="header">
     <NavLink href="/" class="logo"></NavLink>
+    <span class="spacer"></span>
+    <span @onclick="MenuButtonClick" class="menu_button"></span>
 </div>
+
+@{
+    if (IsMenuVisible)
+    {
+        <Menu />
+    }
+}
+
+@code {
+    public bool IsMenuVisible = false;
+    private void MenuButtonClick()
+    {
+        IsMenuVisible = !IsMenuVisible;
+    }
+    public void CloseMenu()
+    {
+        IsMenuVisible = false;
+        StateHasChanged();
+    }
+}
