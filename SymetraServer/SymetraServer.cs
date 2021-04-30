@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace SymetraServer
 {
-    public class Worker : BackgroundService
+    public class SymetraServer : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<SymetraServer> _logger;
 
-        public Worker(ILogger<Worker> logger)
+        public SymetraServer(ILogger<SymetraServer> logger)
         {
             _logger = logger;
         }
@@ -24,20 +24,21 @@ namespace SymetraServer
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                /*
+                
                 //System.Management.Automation.PowerShell.Create();
                 HttpListener hl = new HttpListener();
-                hl.Prefixes.Add("http://*:8089/SymetraClient/");
+                hl.Prefixes.Add("http://*:8089/Symetra/Clients/WS/");
+                hl.Prefixes.Add("http://*:8089/Symetra/Web/WS/");
                 hl.Start();
                 while(true)
                 {
                     HttpListenerContext con = hl.GetContext();
-                    await con.AcceptWebSocketAsync();
+                    await con.AcceptWebSocketAsync("SymetraTalkV0");
                 }
 
 
-                await Task.Delay(1000, stoppingToken);
-                */
+                //await Task.Delay(1000, stoppingToken);
+                
             }
         }
     }
