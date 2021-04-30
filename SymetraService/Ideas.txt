@@ -1,8 +1,0 @@
-﻿* Task Manager / Show User Sessions / Services
-* Event Viewer
-* Users & Computers / Windows Updates
-* Deployment / App Store
-* Modular Design
-* Back-end remote shell
-* File explorer
-* Remote logout for non admins.
